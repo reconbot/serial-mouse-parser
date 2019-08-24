@@ -11,6 +11,8 @@
             true,
             "ban-single-arg-parens"
         ],
+        "member-access":false,
+        "no-bitwise": false,
         "max-line-length": false,
         "no-empty-interface": false,
         "interface-over-type-literal": false,

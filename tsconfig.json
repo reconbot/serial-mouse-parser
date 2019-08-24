@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "noEmit": true,
+    "esModuleInterop": true,
     "allowJs": false,
     "target": "es2017",
     "moduleResolution": "node",

@@ -1,12 +1,12 @@
 {
-  "name": "typescript-library-template",
+  "name": "serial-mouse-parser",
   "version": "0.0.1",
-  "description": "Rollup your code and types for publishing",
+  "description": "This parses microsoft serial mice data into events.",
   "main": "dist/index.js",
   "module": "dist/index-esm.js",
   "types": "dist/index.d.ts",
-  "repository": "git@github.com:reconbot/typescript-library-template.git",
-  "homepage": "https://github.com/reconbot/typescript-library-template",
+  "repository": "git@github.com:reconbot/serial-mouse-parser.git",
+  "homepage": "https://github.com/reconbot/serial-mouse-parser",
   "scripts": {
     "test": "npm run unit-test && npm run lint",
     "unit-test": "mocha --opts lib/mocha.opts",
@@ -16,7 +16,8 @@
     "prepare": "npm run build"
   },
   "keywords": [
-    "typescript-library-template"
+    "mouse",
+    "serial"
   ],
   "license": "MIT",
   "dependencies": {},
@@ -25,7 +26,6 @@
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.5",
     "@types/node": "^12.7.1",
-    "chai": "^4.2.0",
     "mocha": "^6.2.0",
     "prettier": "^1.15.2",
     "rollup": "^1.11.0",
