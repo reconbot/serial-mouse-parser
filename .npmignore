@@ -1,5 +1,4 @@
 .gitignore
-.travis.yml
 .vscode
 lib
 package-lock.json
@@ -11,3 +10,4 @@ rollup.config-esm.js
 rollup.config-umd.js
 budle-types.ts
 dist-ts
+bin

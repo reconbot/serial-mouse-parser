@@ -87,12 +87,20 @@ export class MouseParserStream extends Transform {
 
     const events: Array<{ type: string; [key: string]: any }> = []
     if (this.state.leftMouseButton !== leftMouseButton) {
-      debug('left mouse click', leftMouseButton)
-      events.push({ type: 'onClick' })
+      debug('left mouse change', leftMouseButton)
+      if (leftMouseButton) {
+        events.push({ type: 'mouseDown' })
+      } else {
+        events.push({ type: 'mouseUp' })
+      }
     }
     if (this.state.rightMouseButton !== rightMouseButton) {
-      debug('right mouse click', rightMouseButton)
-      events.push({ type: 'onRightClick' })
+      debug('right mouse change', rightMouseButton)
+      if (rightMouseButton) {
+        events.push({ type: 'rightMouseDown' })
+      } else {
+        events.push({ type: 'rightMouseUp' })
+      }
     }
 
     if (events.length) {
