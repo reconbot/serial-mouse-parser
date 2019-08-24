@@ -20,7 +20,9 @@
     "serial"
   ],
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "debug": "^4.1.1"
+  },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.3.8",
     "@types/chai": "^4.1.7",

@@ -75,7 +75,7 @@ export class MouseParserStream extends Transform {
    *   Y7-Y0 movement in Y direction since last packet (signed byte)
    *
    */
-  _emitEvent(packet) {
+  private _emitEvent(packet) {
     debug('emitting packet', packet)
     if (packet.length !== 3) {
       debug(`bad packet length ${packet}`)
