@@ -1,6 +1,6 @@
 {
   "name": "serial-mouse-parser",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "This parses microsoft serial mice data into events.",
   "main": "dist/index.js",
   "module": "dist/index-esm.js",
