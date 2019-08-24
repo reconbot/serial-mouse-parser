@@ -86,4 +86,5 @@ export async function* mousePacketParser(packets: AsyncIterable<number[]>) {
   }
 }
 
-export const mouseParserAsyncIterator = (serialport: AsyncIterable<Buffer>) => mousePacketParser(mousePacketizer(serialport))
+export const mouseParserAsyncIterator = (serialport: AsyncIterable<Buffer>) =>
+  mousePacketParser(mousePacketizer(serialport))
