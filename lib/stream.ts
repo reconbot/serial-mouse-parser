@@ -1,6 +1,6 @@
 import { Transform } from 'stream'
 import Debug from 'debug'
-const debug = Debug('serialport/mouse-parser')
+const debug = Debug('mouse-parser')
 
 const StartByteMarkerByte = 0b01000000
 const LeftMouseButtonByte = 0b00100000
@@ -113,7 +113,7 @@ export class MouseParserStream extends Transform {
     const x = xBuffer.readInt8(0)
     const yBuffer = Buffer.from([((packet[0] & 0b0001100) << 4) | (packet[2] & 0b00111111)])
     const y = yBuffer.readInt8(0)
-    if (x || y) {
+    if (x !== 0 || y !== 0) {
       events.push({ type: 'move', x, y })
     }
     for (const event of events) {

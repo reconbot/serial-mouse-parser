@@ -2,7 +2,7 @@
 // tslint:disable: no-console
 import SerialPort from 'serialport'
 import robot from 'robotjs'
-import { MouseParserStream } from '../lib/index'
+import { mouseParserAsyncIterator } from '../lib/index'
 
 async function findPort() {
   const ports = await SerialPort.list()
@@ -13,11 +13,6 @@ async function findPort() {
   }
   throw new Error('No Prolifics found')
 }
-
-const binaryString = (buff: Buffer) =>
-  Array.from(buff)
-    .map(byte => byte.toString(2).padStart(8, '0'))
-    .join(' ')
 
 const window = robot.getScreenSize()
 const location = robot.getMousePos()
@@ -42,24 +37,28 @@ const move = ({ x, y }) => {
 ;(async () => {
   const portName = await findPort()
   const port = new SerialPort(portName, { baudRate: 1200, stopBits: 1, dataBits: 8 })
-  const parser = port.pipe(new MouseParserStream())
   port.on('open', () => console.log('opened', portName))
-  parser.on('data', data => {
-    switch (data.type) {
+  for await (const event of mouseParserAsyncIterator(port)) {
+    switch (event.type) {
       case 'move':
-        return move(data)
+        move(event as any)
+        break
       case 'mouseDown':
-        return robot.mouseToggle('down', 'left')
+        robot.mouseToggle('down', 'left')
+        break
       case 'mouseUp':
-        return robot.mouseToggle('up', 'left')
+        robot.mouseToggle('up', 'left')
+        break
       case 'rightMouseDown':
-        return robot.mouseToggle('down', 'right')
+        robot.mouseToggle('down', 'right')
+        break
       case 'rightMouseUp':
-        return robot.mouseToggle('up', 'right')
+        robot.mouseToggle('up', 'right')
+        break
       default:
-        console.log('unhandled', data)
+        console.log('unhandled', event)
     }
-  })
+  }
 })()
 
 process.on('unhandledRejection', console.error)
