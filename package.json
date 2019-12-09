@@ -32,7 +32,7 @@
     "bluestream": "^10.3.3",
     "mocha": "^6.2.0",
     "prettier": "^1.15.2",
-    "robotjs": "^0.5.1",
+    "robotjs": "^0.6.0",
     "rollup": "^1.11.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "serialport": "^8.0.4",
