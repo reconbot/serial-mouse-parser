@@ -27,7 +27,7 @@
   "devDependencies": {
     "@microsoft/api-extractor": "^7.3.8",
     "@types/chai": "^4.1.7",
-    "@types/mocha": "^5.2.5",
+    "@types/mocha": "^7.0.0",
     "@types/node": "^12.7.1",
     "bluestream": "^10.3.3",
     "mocha": "^6.2.0",
