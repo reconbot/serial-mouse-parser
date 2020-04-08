@@ -24,9 +24,9 @@ describe('MouseParserStream', () => {
     ])
   })
 
-  it('sends right button events', done => {
+  it('sends right button events', (done) => {
     const parser = new MouseParserStream()
-    parser.on('data', event => {
+    parser.on('data', (event) => {
       assert.deepStrictEqual(event, {
         type: 'rightMouseDown',
         state: { leftMouseButton: false, rightMouseButton: true },
@@ -36,9 +36,9 @@ describe('MouseParserStream', () => {
     parser.write(rightMousePress)
   })
 
-  it('sends xy changes', done => {
+  it('sends xy changes', (done) => {
     const parser = new MouseParserStream()
-    parser.on('data', event => {
+    parser.on('data', (event) => {
       const x = 79
       const y = 19
       assert.deepStrictEqual(event, { type: 'move', x, y, state: { leftMouseButton: false, rightMouseButton: false } })
