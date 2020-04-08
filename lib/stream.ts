@@ -6,7 +6,7 @@ const StartByteMarkerByte = 0b01000000
 const LeftMouseButtonByte = 0b00100000
 const RightMouseButtonByte = 0b00010000
 
-const isStart = byte => byte & StartByteMarkerByte
+const isStart = (byte: number) => byte & StartByteMarkerByte
 
 const DEFAULT_STATE = Object.freeze({
   leftMouseButton: false,
