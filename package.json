@@ -28,7 +28,7 @@
     "@microsoft/api-extractor": "^7.3.8",
     "@types/chai": "^4.1.7",
     "@types/mocha": "^7.0.0",
-    "@types/node": "^13.1.0",
+    "@types/node": "^13.13.2",
     "bluestream": "^10.3.3",
     "mocha": "^7.0.0",
     "prettier": "^2.0.0",
