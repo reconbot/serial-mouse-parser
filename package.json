@@ -33,7 +33,7 @@
     "mocha": "^7.0.0",
     "prettier": "^2.0.0",
     "robotjs": "^0.6.0",
-    "rollup": "^2.0.0",
+    "rollup": "^2.10.4",
     "rollup-plugin-node-resolve": "^5.2.0",
     "serialport": "^8.0.4",
     "through2-concurrent": "^2.0.0",
