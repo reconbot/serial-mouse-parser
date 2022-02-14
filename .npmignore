@@ -11,3 +11,4 @@ rollup.config-umd.js
 budle-types.ts
 dist-ts
 bin
+.tool-versions

@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 // tslint:disable: no-console
-import SerialPort from 'serialport'
+import { SerialPort } from 'serialport'
 import robot from 'robotjs'
 import { mouseParserAsyncIterator } from '../lib/index'
 
 async function findPort() {
   const ports = await SerialPort.list()
   for (const port of ports) {
-    if (/Prolific/i.test(port.manufacturer)) {
-      return port.comName as string
+    if (/Prolific/i.test(port.manufacturer || '')) {
+      return port.path
     }
   }
   throw new Error('No Prolifics found')
@@ -34,10 +34,11 @@ const move = ({ x, y }) => {
   }
   robot.moveMouse(location.x, location.y)
 }
+
 ;(async () => {
-  const portName = await findPort()
-  const port = new SerialPort(portName, { baudRate: 1200, stopBits: 1, dataBits: 8 })
-  port.on('open', () => console.log('opened', portName))
+  const path = await findPort()
+  const port = new SerialPort({ path, baudRate: 1200, stopBits: 1, dataBits: 8 })
+  port.on('open', () => console.log('opened', path))
   for await (const event of mouseParserAsyncIterator(port)) {
     switch (event.type) {
       case 'move':
